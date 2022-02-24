@@ -1,25 +1,31 @@
 ﻿using System;
 
-Console.WriteLine("Welcome to the Enthusiastic Moose Simulator!");
-Console.WriteLine("--------------------------------------------");
-Console.WriteLine();
+Main();
 
-// Let the moose speak!
-MooseSays("H I, I'M  E N T H U S I A S T I C !");
-MooseSays("I really am enthusiastic");
+void Main()
+{
+    Console.WriteLine("Welcome to the Enthusiastic Moose Simulator!");
+    Console.WriteLine("--------------------------------------------");
+    Console.WriteLine();
 
-// Ask a question
-CanadaQuestion();
-EnthusiasticQuestion();
-LoveCSharpQuestion();
-SecretQuestion();
+    // Let the moose speak!
+    MooseSays("H I, I'M  E N T H U S I A S T I C !");
+    MooseSays("I really am enthusiastic");
 
+    // Ask a question
+    CanadaQuestion();
+    EnthusiasticQuestion();
+    LoveCSharpQuestion();
+    SecretQuestion();
+}
 
 
 
 void MooseSays(string message)
 {
     Console.WriteLine($@"
+
+
                                        _.--^^^--,
                                     .'          `\
   .-^^^^^^-.                      .'              |
@@ -71,54 +77,35 @@ bool MooseAsks(string question)
     }
 };
 
-void CanadaQuestion()
+void Question(string Question, string Yes, string No)
 {
-    bool isTrue = MooseAsks("Is Canada real?");
+    bool isTrue = MooseAsks(Question);
     if (isTrue)
     {
-        MooseSays("Really? It seems very unlikely.");
+        MooseSays(Yes);
     }
     else
     {
-        MooseSays("I  K N E W  I T !!!");
+        MooseSays(No);
     }
+}
+
+void CanadaQuestion()
+{
+    Question("Is Cananda real?", "Really? It seems very unlikely.", "I  K N E W  I T !!!");
 }
 
 void EnthusiasticQuestion()
 {
-    bool isEnthusiastic = MooseAsks("Are you enthusiastic?");
-    if (isEnthusiastic)
-    {
-        MooseSays("Yay!");
-    }
-    else
-    {
-        MooseSays("You should try it!");
-    }
+    Question("Are you enthusiastic?", "Yay!", "You should try it!");
 }
 
 void LoveCSharpQuestion()
 {
-    bool doesLoveCSharp = MooseAsks("Do you love C# yet?");
-    if (doesLoveCSharp)
-    {
-        MooseSays("Good job sucking up to your instructor!");
-    }
-    else
-    {
-        MooseSays("You will...oh, yes, you will...");
-    }
+    Question("Do you love C# yet?", "Good job sucking up to your instructor!", "You will...oh, yes, you will...");
 }
 
 void SecretQuestion()
 {
-    bool wantsSecret = MooseAsks("Do you want to know a secret?");
-    if (wantsSecret)
-    {
-        MooseSays("ME TOO!!!! I love secrets...tell me one!");
-    }
-    else
-    {
-        MooseSays("Oh, no...secrets are the best, I love to share them!");
-    }
+    Question("Do you want to know a secret?", "ME TOO!!!! I love secrets...tell me one!", "Oh, no...secrets are the best, I love to share them!");
 }
